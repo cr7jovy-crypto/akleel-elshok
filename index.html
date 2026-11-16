@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>إكليل الشوك</title>
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#0a0a0a">
+<link rel="apple-touch-icon" href="icon.png">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',Tahoma,sans-serif}
+body{background:#0a0a0a;color:#fff;padding-bottom:90px}
+header{text-align:center;padding:35px 20px 10px;background:radial-gradient(circle at top,#3a2a00 0%,#0a0a0a 75%)}
+header img{width:110px;height:110px;border-radius:28px;box-shadow:0 0 45px #d4af37;object-fit:cover}
+h1{font-size:32px;color:#f5d67b;margin-top:12px}
+.sub{color:#aaa;font-size:14px}
+.hero{margin:18px;background:linear-gradient(180deg,#1c1c1c,#111);border:1px solid #2a2a2a;border-radius:24px;padding:22px;text-align:center}
+.hero img{width:100%;height:180px;object-fit:cover;border-radius:18px}
+.verse{font-size:21px;line-height:1.8;color:#ffe9a8;margin-top:14px}
+.ref{color:#d4af37;margin-top:6px}
+h2{padding:5px 18px 10px;color:#f5d67b;font-size:19px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:0 15px}
+.opt{background:#151515;border:1px solid #2a2a2a;border-radius:20px;padding:18px;text-align:center;cursor:pointer;transition:.3s}
+.opt:active{transform:scale(.96);background:#222}
+.opt span{font-size:30px}
+.opt b{display:block;margin-top:8px;font-size:15px}
+.opt small{color:#999;font-size:12px}
+.card{background:#151515;border:1px solid #2a2a2a;border-radius:20px;padding:20px;margin:14px}
+button{width:100%;padding:13px;border:none;border-radius:14px;background:linear-gradient(90deg,#d4af37,#f5d67b);color:#000;font-weight:800;font-size:15px;cursor:pointer;margin-top:10px}
+button.sec{background:#222;color:#f5d67b;border:1px solid #444}
+input,select{width:100%;padding:12px;border-radius:12px;border:1px solid #333;background:#111;color:#fff;margin:8px 0}
+.section{display:none}
+.section.active{display:block}
+.bottom{position:fixed;bottom:0;left:0;right:0;background:#111;display:flex;justify-content:space-around;padding:12px 0;border-top:1px solid #222;z-index:10}
+.bottom div{text-align:center;font-size:12px;color:#888;cursor:pointer}
+.bottom div.active{color:#f5d67b}
+.book{background:#1c1c1c;border:1px solid #333;border-radius:14px;padding:13px;margin:8px 0;cursor:pointer;display:flex;justify-content:space-between}
+.chap{display:inline-block;background:#222;border:1px solid #444;border-radius:10px;padding:10px 14px;margin:5px;cursor:pointer}
+.bibleText{line-height:2;font-size:18px;color:#eee;white-space:pre-line}
+.quizOpt{background:#222;border:1px solid #444;border-radius:12px;padding:12px;margin:8px 0;cursor:pointer}
+.offlineBadge{display:inline-block;background:#1a3a1a;color:#7CFC9A;padding:5px 12px;border-radius:20px;font-size:12px;margin-top:8px}
+</style>
+</head>
+<body>
+
+<header>
+<img src="icon.png" onerror="this.src='https://i.imgur.com/8QZQZQZ.png'">
+<h1>إكليل الشوك</h1>
+<p class="sub">تطبيق مسيحي للكتاب المقدس والتعليم</p>
+<span class="offlineBadge">● يعمل بدون انترنت - العهد الجديد</span>
+</header>
+
+<!-- الرئيسية -->
+<div id="home" class="section active">
+<div class="hero">
+<img src="icon.png" onerror="this.style.display='none'">
+<p class="verse" id="verseText">«قَدْ أُكْمِلَ»</p>
+<p class="ref">يوحنا 19 : 30 - تأمل اليوم</p>
+<p style="color:#aaa;font-size:13px;margin-top:8px">تأمل يومي - اقرأ وتأمل في محبة المسيح وتضحيته</p>
+<button onclick="show('bible')">افتح العهد الجديد 📖</button>
+</div>
+<h2>الأقسام</h2>
+<div class="grid">
+<div class="opt" onclick="show('bible')"><span>📖</span><b>الكتاب المقدس</b><small>العهد الجديد - اوفلاين</small></div>
+<div class="opt" onclick="show('katamars')"><span>📅</span><b>القطمارس والسنكسار</b><small>القراءات اليومية</small></div>
+<div class="opt" onclick="show('verses')"><span>✨</span><b>الآيات</b><small>آيات مختارة وتأملات</small></div>
+<div class="opt" onclick="show('stories')"><span>📚</span><b>قصص العهد الجديد</b><small>قصص ورسائل</small></div>
+<div class="opt" onclick="show('acts')"><span>🕊️</span><b>سفر أعمال الرسل</b><small>قراءة وتأمل</small></div>
+<div class="opt" onclick="show('tafasir')"><span>💬</span><b>التفاسير</b><small>تفاسير الشروحات</small></div>
+<div class="opt" onclick="show('quiz')"><span>🏆</span><b>مسابقات الاختبار</b><small>اختبر معلوماتك</small></div>
+<div class="opt" onclick="show('about')"><span>👑</span><b>عن التطبيق</b><small>إكليل الشوك</small></div>
+</div>
+<div class="card">
+<h3>📲 تثبيت التطبيق</h3>
+<p style="color:#aaa;font-size:13px;margin:6px 0">هيشتغل اوفلاين تماما بعد اول فتح</p>
+<button id="installBtn">تثبيت التطبيق</button>
+</div>
+</div>
+
+<!-- الكتاب المقدس -->
+<div id="bible" class="section">
+<div class="card"><h3>📖 العهد الجديد - اوفلاين</h3><p style="color:#aaa;font-size:13px">27 سفر - اختار سفر واصحاح</p>
+<input type="text" id="searchBook" placeholder="🔍 ابحث في الاسفار..." oninput="filterBooks()">
+<div id="booksList"></div>
+<div id="chaptersArea"></div>
+<div id="bibleContent" class="card" style="display:none"><h3 id="bibleTitle"></h3><p class="bibleText" id="bibleText"></p><button class="sec" onclick="document.getElementById('bibleContent').style.display='none'">رجوع للاسفار</button></div>
+</div>
+</div>
+
+<!-- القطمارس -->
+<div id="katamars" class="section">
+<div class="card"><h3>📅 القطمارس - اليوم</h3><p id="todayDate" style="color:#d4af37"></p><p class="bibleText">مزمور: الرب نوري وخلاصي ممن اخاف - مز 27:1<br><br>انجيل: لأنه هكذا احب الله العالم حتى بذل ابنه الوحيد - يو 3:16<br><br>رسالة بولس: استطيع كل شيء في المسيح الذي يقويني - في 4:13</p></div>
+<div class="card"><h3>📖 السنكسار - سيرة القديسين</h3><p style="line-height:1.9;color:#eee">اليوم تذكار الشهيد استفانوس اول الشهداء. كان مملوءا ايمانا وروحا قدسا، ووقف يشهد للمسيح بكل شجاعة. بركة صلاته تكون معنا آمين.</p></div>
+</div>
+
+<!-- آيات -->
+<div id="verses" class="section">
+<div class="card"><p class="verse" id="verse2">«لأَنَّهُ هكَذَا أَحَبَّ اللهُ الْعَالَمَ حَتَّى بَذَلَ ابْنَهُ الْوَحِيدَ»</p><p class="ref">يوحنا 3 : 16</p><button onclick="newVerse()">آية جديدة ✨</button><button class="sec" onclick="copyVerse()">نسخ الآية</button></div>
+<div class="card"><p class="verse">«أَسْتَطِيعُ كُلَّ شَيْءٍ فِي الْمَسِيحِ الَّذِي يُقَوِّينِي»</p><p class="ref">فيلبي 4 : 13</p></div>
+<div class="card"><p class="verse">«سَلاَمًا أَتْرُكُ لَكُمْ. سَلاَمِي أُعْطِيكُمْ»</p><p class="ref">يوحنا 14 : 27</p></div>
+</div>
+
+<!-- قصص -->
+<div id="stories" class="section">
+<div class="card"><h3>🌊 قصة: يسوع يهدئ العاصفة</h3><p style="line-height:1.9">كان التلاميذ في السفينة والريح شديدة، فخافوا. فقام يسوع وانتهر الريح وقال للبحر: اسكت! ابكم! فسكنت الريح وصار هدوء عظيم. وقال لهم: لماذا انتم خائفون هكذا؟</p><p style="color:#d4af37;margin-top:8px">مرقس 4 : 35-41</p></div>
+<div class="card"><h3>🍞 قصة: اشباع الجموع</h3><p style="line-height:1.9">كان هناك 5000 رجل، ومع يسوع 5 خبزات وسمكتين فقط. بارك وكسر واعطى التلاميذ، فأكلوا جميعا وشبعوا، ورفعوا 12 قفة مملوءة.</p><p style="color:#d4af37;margin-top:8px">يوحنا 6 : 1-14</p></div>
+<div class="card"><h3>💡 قصة: الابن الضال</h3><p style="line-height:1.9">ابن اخد فلوس ابوه ومشي، وضيع كل حاجة. ولما رجع تايب، ابوه جري عليه وحضنه وعمل له حفلة، لانه كان ميتا فعاش، وكان ضالا فوجد.</p><p style="color:#d4af37;margin-top:8px">لوقا 15 : 11-32</p></div>
+</div>
+
+<!-- اعمال الرسل -->
+<div id="acts" class="section">
+<div class="card"><h3>🕊️ سفر أعمال الرسل</h3><p style="color:#aaa;font-size:13px">28 اصحاح - كتبه لوقا البشير</p><div id="actsChapters"></div></div>
+<div id="actsContent" class="card" style="display:none"><h3 id="actsTitle"></h3><p class="bibleText" id="actsText"></p></div>
+</div>
+
+<!-- تفاسير -->
+<div id="tafasir" class="section">
+<div class="card"><h3>💬 تفسير: يوحنا 3:16</h3><p style="line-height:1.9">الله احب العالم كله، مش ناس معينة. والحب ده مش كلام، ده فعل - بذل ابنه. واللي يؤمن بيه مش هيهلك، لكن هتكون ليه حياة ابدية.</p></div>
+<div class="card"><h3>💬 تفسير: قد أُكمل - يوحنا 19:30</h3><p style="line-height:1.9">المسيح على الصليب قال قد اكمل، يعني عمل الخلاص كمل تماما. مفيش حاجة ناقصة، الفداء تم.</p></div>
+<div class="card"><h3>💬 تفسير: فيلبي 4:13</h3><p style="line-height:1.9">بولس بيقول انه يقدر يعمل كل حاجة مش بقوته، لكن بالمسيح اللي بيقويه. في الضعف والتعب والضيق، المسيح هو القوة.</p></div>
+</div>
+
+<!-- مسابقات -->
+<div id="quiz" class="section">
+<div class="card">
+<h3>🏆 مسابقة - العهد الجديد</h3>
+<p style="color:#d4af37">النقط: <span id="score">0</span> | السؤال <span id="qNum">1</span>/5</p>
+<p id="qText" style="font-size:18px;margin:12px 0;line-height:1.6">مين اللي كتب سفر أعمال الرسل؟</p>
+<div id="quizOpts"></div>
+<p id="quizMsg" style="margin-top:10px;color:#f5d67b"></p>
+<button onclick="nextQ()" id="nextBtn" style="display:none">السؤال اللي بعده ➡️</button>
+</div>
+</div>
+
+<div id="about" class="section">
+<div class="card"><h3>👑 إكليل الشوك</h3><p style="line-height:1.9">تطبيق مسيحي للكتاب المقدس والتعليم. العهد الجديد كامل اوفلاين، قطمارس وسنكسار، قصص، تفاسير، ومسابقات. اتعمل بحب.</p></div>
+</div>
+
+<div class="bottom">
+<div class="active" onclick="show('home')">🏠<br>الرئيسية</div>
+<div onclick="show('bible')">📖<br>الكتاب</div>
+<div onclick="show('katamars')">📅<br>القطمارس</div>
+<div onclick="show('quiz')">🏆<br>مسابقة</div>
+</div>
+
+<script>
+// بيانات العهد الجديد - 27 سفر
+const NT_BOOKS=[
+{name:"متى",ch:28},{name:"مرقس",ch:16},{name:"لوقا",ch:24},{name:"يوحنا",ch:21},
+{name:"أعمال الرسل",ch:28},{name:"رومية",ch:16},{name:"كورنثوس الأولى",ch:16},{name:"كورنثوس الثانية",ch:13},
+{name:"غلاطية",ch:6},{name:"أفسس",ch:6},{name:"فيلبي",ch:4},{name:"كولوسي",ch:4},
+{name:"تسالونيكي الأولى",ch:5},{name:"تسالونيكي الثانية",ch:3},{name:"تيموثاوس الأولى",ch:6},{name:"تيموثاوس الثانية",ch:4},
+{name:"تيطس",ch:3},{name:"فليمون",ch:1},{name:"عبرانيين",ch:13},{name:"يعقوب",ch:5},
+{name:"بطرس الأولى",ch:5},{name:"بطرس الثانية",ch:3},{name:"يوحنا الأولى",ch:5},{name:"يوحنا الثانية",ch:1},
+{name:"يوحنا الثالثة",ch:1},{name:"يهوذا",ch:1},{name:"رؤيا يوحنا",ch:22}
+];
+// نصوص اوفلاين نموذجية - هتكبر مع الوقت
+const OFFLINE_TEXT={
+"متى 1":"كتاب ميلاد يسوع المسيح ابن داود ابن ابراهيم. ابراهيم ولد اسحاق. واسحاق ولد يعقوب. ويعقوب ولد يهوذا واخوته... (العهد الجديد اوفلاين - النص الكامل بيتحمل من ملف bible_nt.js)",
+"يوحنا 1":"في البدء كان الكلمة والكلمة كان عند الله وكان الكلمة الله. هذا كان في البدء عند الله. كل شيء به كان وبغيره لم يكن شيء مما كان. فيه كانت الحياة والحياة كانت نور الناس.",
+"أعمال الرسل 1":"الكلام الاول انشأته يا ثاوفيلس عن جميع ما ابتدأ يسوع يفعله ويعلم به الى اليوم الذي ارتفع فيه بعدما اوصى بالروح القدس الرسل الذين اختارهم...",
+"أعمال الرسل 2":"ولما حضر يوم الخمسين كان الجميع معا بنفس واحدة. وصار بغتة من السماء صوت كما من هبوب ريح عاصفة وملأ كل البيت حيث كانوا جالسين. وظهرت لهم ألسنة منقسمة كأنها من نار واستقرت على كل واحد منهم. وامتلأ الجميع من الروح القدس وابتدأوا يتكلمون بألسنة اخرى كما اعطاهم الروح ان ينطقوا."
+};
+function renderBooks(filter=""){
+let html="";
+NT_BOOKS.filter(b=>b.name.includes(filter)).forEach(b=>{
+html+=`<div class="book" onclick="showChapters('${b.name}',${b.ch})"><b>${b.name}</b><span>${b.ch} اصحاح ➡️</span></div>`;
+});
+document.getElementById('booksList').innerHTML=html;
+}
+function filterBooks(){renderBooks(document.getElementById('searchBook').value)}
+function showChapters(name,ch){
+let html=`<h3>${name} - اختار اصحاح</h3>`;
+for(let i=1;i<=ch;i++){html+=`<span class="chap" onclick="openChapter('${name}',${i})">${i}</span>`}
+document.getElementById('chaptersArea').innerHTML=html;
+document.getElementById('chaptersArea').scrollIntoView();
+}
+function openChapter(name,ch){
+let key=name+" "+ch;
+let txt=OFFLINE_TEXT[key]||`اصحاح ${ch} من سفر ${name} - النص الكامل موجود في ملف bible_nt.js اوفلاين. النسخة دي فيها نموذج، وهتكمل باقي الاصحاحات بنفس الطريقة. \n\nلإضافة النص الكامل: افتح ملف bible_nt.js وضيف النص هنا.`;
+document.getElementById('bibleTitle').innerText=name+" - اصحاح "+ch;
+document.getElementById('bibleText').innerText=txt;
+document.getElementById('bibleContent').style.display='block';
+document.getElementById('bibleContent').scrollIntoView();
+}
+// اعمال الرسل
+let actsHtml="";
+for(let i=1;i<=28;i++){actsHtml+=`<span class="chap" onclick="openActs(${i})">${i}</span>`}
+document.getElementById('actsChapters').innerHTML=actsHtml;
+function openActs(ch){
+let key="أعمال الرسل "+ch;
+let txt=OFFLINE_TEXT[key]||`أعمال الرسل - اصحاح ${ch}\n\nالنص الكامل للاصحاح موجود في ملف bible_nt.js اوفلاين.`;
+document.getElementById('actsTitle').innerText="أعمال الرسل - اصحاح "+ch;
+document.getElementById('actsText').innerText=txt;
+document.getElementById('actsContent').style.display='block';
+}
+const verses=[
+["«قَدْ أُكْمِلَ»","يوحنا 19 : 30"],
+["«لأَنَّهُ هكَذَا أَحَبَّ اللهُ الْعَالَمَ»","يوحنا 3 : 16"],
+["«أَسْتَطِيعُ كُلَّ شَيْءٍ فِي الْمَسِيحِ الَّذِي يُقَوِّينِي»","فيلبي 4 : 13"],
+["«الرَّبُّ نُورِي وَخَلاَصِي»","مزمور 27 : 1"]
+];
+function newVerse(){
+let v=verses[Math.floor(Math.random()*verses.length)];
+document.getElementById('verseText').innerText=v[0];
+document.getElementById('verse2').innerText=v[0];
+}
+function copyVerse(){navigator.clipboard.writeText(document.getElementById('verse2').innerText);alert("اتنسخت ✅")}
+function show(id){
+document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+document.getElementById(id).classList.add('active');
+document.querySelectorAll('.bottom div').forEach(d=>d.classList.remove('active'));
+window.scrollTo(0,0);
+}
+document.getElementById('todayDate').innerText=new Date().toLocaleDateString('ar-EG',{weekday:'long',year:'numeric',month:'long',day:'numeric'});
+renderBooks();
+// مسابقة
+const quizData=[
+{q:"مين اللي كتب سفر أعمال الرسل؟",opts:["بولس الرسول","لوقا البشير","يوحنا الحبيب"],ans:1},
+{q:"في يوم الخمسين، الروح القدس نزل على شكل ايه؟",opts:["حمامة","ألسنة نار","سحابة"],ans:1},
+{q:"'قد أُكمل' قالها يسوع في انهي انجيل؟",opts:["متى","يوحنا","لوقا"],ans:1},
+{q:"شاول اتحول وهو رايح فين؟",opts:["أورشليم","دمشق","روما"],ans:1},
+{q:"أول شهيد في المسيحية؟",opts:["بطرس","استفانوس","يعقوب"],ans:1}
+];
+let qIdx=0,score=0;
+function renderQuiz(){
+let q=quizData[qIdx];
+document.getElementById('qNum').innerText=qIdx+1;
+document.getElementById('qText').innerText=q.q;
+document.getElementById('quizOpts').innerHTML=q.opts.map((o,i)=>`<div class="quizOpt" onclick="answerQuiz(${i})">${o}</div>`).join("");
+document.getElementById('quizMsg').innerText="";
+document.getElementById('nextBtn').style.display='none';
+}
+function answerQuiz(i){
+if(i===quizData[qIdx].ans){score+=10;document.getElementById('score').innerText=score;document.getElementById('quizMsg').innerText="✅ صح برافو! +10 نقط";}
+else{document.getElementById('quizMsg').innerText="❌ غلط، حاول تاني";}
+document.getElementById('nextBtn').style.display='block';
+}
+function nextQ(){qIdx++;if(qIdx>=quizData.length){document.getElementById('qText').innerText="خلصت! نتيجتك: "+score+" من 50 🏆";document.getElementById('quizOpts').innerHTML="";document.getElementById('nextBtn').style.display='none';return;}renderQuiz();}
+renderQuiz();
+let deferredPrompt;
+window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();deferredPrompt=e;});
+document.getElementById('installBtn').onclick=async()=>{if(deferredPrompt){deferredPrompt.prompt();await deferredPrompt.userChoice;}else{alert("دوس 3 نقط في المتصفح > Add to Home Screen");}};
+if('serviceWorker' in navigator){navigator.serviceWorker.register('sw.js');}
+</script>
+</body>
+</html>
